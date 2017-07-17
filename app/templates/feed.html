@@ -1,0 +1,29 @@
+
+<div>
+ 	<div ng-show="loader" class="top-of-feed-container">
+		<span class="letterpress"><img src="images/loader.gif" > </span>
+	</div>
+	<div ng-show="feedlist" class="top-of-feed-container">
+		<span class="letterpress">No post with this tag</span>
+	</div>
+	<ul>
+		<li ng-repeat="post in feed.items" class="feed-item">
+			<div class="feed-item-img">
+				<a href="{{post.link}}">
+					<img src="{{post.media.m}}">
+				</a>
+			</div>
+			<div class="feed-item-text">
+				<a class="title" href="{{post.link}}">
+					<div class="truncate">
+						{{post.title | handleUntitled}}
+					</div>
+				</a>
+				<div class="feed-description">
+					<a href="http://www.flickr.com/people/{{post.author_id}}/" class="view-author">{{post.author}}</a>
+					<span class="published">Published: {{post.published}}</span>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
